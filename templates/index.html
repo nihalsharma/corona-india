@@ -1,0 +1,208 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
+    <link rel="shortcut icon" href="/static/assets/static/images/favicon.ico"/>
+    <title>Dashboard</title>
+    <style>#loader {
+        transition: all .3s ease-in-out;
+        opacity: 1;
+        visibility: visible;
+        position: fixed;
+        height: 100vh;
+        width: 100%;
+        background: #fff;
+        z-index: 90000
+    }
+
+    #loader.fadeOut {
+        opacity: 0;
+        visibility: hidden
+    }
+
+    .spinner {
+        width: 40px;
+        height: 40px;
+        position: absolute;
+        top: calc(50% - 20px);
+        left: calc(50% - 20px);
+        background-color: #333;
+        border-radius: 100%;
+        -webkit-animation: sk-scaleout 1s infinite ease-in-out;
+        animation: sk-scaleout 1s infinite ease-in-out
+    }
+
+    @-webkit-keyframes sk-scaleout {
+        0% {
+            -webkit-transform: scale(0)
+        }
+        100% {
+            -webkit-transform: scale(1);
+            opacity: 0
+        }
+    }
+
+    @keyframes sk-scaleout {
+        0% {
+            -webkit-transform: scale(0);
+            transform: scale(0)
+        }
+        100% {
+            -webkit-transform: scale(1);
+            transform: scale(1);
+            opacity: 0
+        }
+    }</style>
+    <link href="/static/style.css" rel="stylesheet">
+</head>
+<body class="app">
+<div id="loader">
+    <div class="spinner"></div>
+</div>
+<script>window.addEventListener('load', () => {
+    const loader = document.getElementById('loader');
+    setTimeout(() => {
+        loader.classList.add('fadeOut');
+    }, 300);
+});</script>
+<div>
+    <div class="sidebar">
+        <div class="sidebar-inner">
+            <div class="sidebar-logo">
+                <div class="peers ai-c fxw-nw">
+                    <div class="peer peer-greed"><a class="sidebar-link td-n" href="index.html">
+                        <div class="peers ai-c fxw-nw">
+                            <div class="peer">
+                                <div class="logo"><img height="64x" width="64px"
+                                                       src="/static/assets/static/images/corona-virus-3133.svg" alt="">
+                                </div>
+                            </div>
+                            <div class="peer peer-greed"><h5 class="lh-1 mB-0 logo-text">COVID-19</h5></div>
+                        </div>
+                    </a></div>
+                    <div class="peer">
+                        <div class="mobile-toggle sidebar-toggle"><a href="" class="td-n"><i
+                                class="ti-arrow-circle-left"></i></a></div>
+                    </div>
+                </div>
+            </div>
+            {% include "sidebar.html" %}
+        </div>
+    </div>
+    <div class="page-container">
+        <div class="header navbar">
+            <div class="header-container">
+                <ul class="nav-left">
+                    <li><a id="sidebar-toggle" class="sidebar-toggle" href="javascript:void(0);"><i class="ti-menu"></i></a>
+                    </li>
+                </ul>
+
+            </div>
+        </div>
+        <main class="main-content bgc-grey-100">
+            <div id="mainContent">
+                <div class="row gap-20 masonry pos-r">
+                    <div class="masonry-sizer col-md-6"></div>
+                    <div class="container-fluid">
+                        <div class="masonry-item w-100">
+                            <div class="row gap-20">
+                                <div class="col-md-3">
+                                    <div class="layers bd bgc-white p-20">
+                                        <div class="layer w-100 mB-10"><h6 class="lh-1">Total Infections</h6></div>
+                                        <div class="layer w-100">
+                                            <div class="peers ai-sb fxw-nw">
+                                                <div class="peer peer-greed"><span
+                                                        style="font-weight: bold">{{ total.total }}</span></div>
+                                                <div class="peer"><span
+                                                        class="d-ib lh-0 va-m fw-600 bdrs-10em pX-15 pY-15 bgc-red-50 c-red-500">+10%</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="layers bd bgc-white p-20">
+                                        <div class="layer w-100 mB-10"><h6 class="lh-1" style="color: red">Deaths</h6>
+                                        </div>
+                                        <div class="layer w-100">
+                                            <div class="peers ai-sb fxw-nw">
+                                                <div class="peer peer-greed"><span
+                                                        style="font-weight: bold">{{ total.deaths }}</span></div>
+                                                <div class="peer"><span
+                                                        class="d-ib lh-0 va-m fw-600 bdrs-10em pX-15 pY-15 bgc-red-50 c-red-500">+7%</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="layers bd bgc-white p-20">
+                                        <div class="layer w-100 mB-10"><h6 class="lh-1" style="color: green">
+                                            Recovered</h6></div>
+                                        <div class="layer w-100">
+                                            <div class="peers ai-sb fxw-nw">
+                                                <div class="peer peer-greed"><span
+                                                        style="font-weight: bold">{{ total.recovered }}</span></div>
+                                                <div class="peer"><span
+                                                        class="d-ib lh-0 va-m fw-600 bdrs-10em pX-15 pY-15 bgc-red-50 c-red-500">+12%</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="masonry-item col-12">
+                        <div class="bd bgc-white">
+                            <div class="peers fxw-nw@lg+ ai-s">
+                                <div class="peer peer-greed w-70p@lg+ w-100@lg- p-20">
+                                    <div class="layers">
+                                        <div class="layer w-100 mB-10"><h6 class="lh-1">Site Visits</h6></div>
+                                        <div class="layer w-100">
+                                            <div id="world-map-marker"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="peer bdL p-20 w-30p@lg+ w-100p@lg-">
+                                    <div class="layers">
+                                        <div class="layer w-100 mB-10"><h6 class="lh-1">Country Wise</h6></div>
+                                        <div class="layer w-100">
+                                            <div class="layers" style="padding: 2em;">
+                                                {% for d in count_data %}
+                                                    <div class="layer w-100"><h5 class="mB-5"></h5>
+                                                        <span
+                                                                class="fw-600 c-grey-700">{{ d.country }} ({{ d.total }})</span>
+                                                        <span
+                                                                class="pull-right c-grey-600 fsz-sm">{{ d.percentage }}%</span>
+                                                        <div class="progress mT-10">
+                                                            <div class="progress-bar bgc-deep-purple-500"
+                                                                 role="progressbar"
+                                                                 aria-valuenow="50" aria-valuemin="0"
+                                                                 aria-valuemax="100"
+                                                                 style="width:{{ d.percentage }}%"><span
+                                                                    class="sr-only"></span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                {% endfor %}
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div style="text-align: center;margin: 1em"><a
+                                            class="d-ib lh-0 va-m fw-600 bdrs-10em pX-15 pY-15 bgc-blue-50 c-blue-500"
+                                            href="/world-stats">View More</a></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+</div>
+<script type="text/javascript" src="/static/vendor.js"></script>
+<script type="text/javascript" src="/static/bundle.js"></script>
+</body>
+</html>

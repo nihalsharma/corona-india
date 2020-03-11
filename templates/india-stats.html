@@ -1,0 +1,266 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
+    <link rel="shortcut icon" href="/static/assets/static/images/favicon.ico"/>
+    <title>Growth of Infections/Deaths/Recoveries</title>
+    <style>#loader {
+        transition: all .3s ease-in-out;
+        opacity: 1;
+        visibility: visible;
+        position: fixed;
+        height: 100vh;
+        width: 100%;
+        background: #fff;
+        z-index: 90000
+    }
+
+    #loader.fadeOut {
+        opacity: 0;
+        visibility: hidden
+    }
+
+    .spinner {
+        width: 40px;
+        height: 40px;
+        position: absolute;
+        top: calc(50% - 20px);
+        left: calc(50% - 20px);
+        background-color: #333;
+        border-radius: 100%;
+        -webkit-animation: sk-scaleout 1s infinite ease-in-out;
+        animation: sk-scaleout 1s infinite ease-in-out
+    }
+
+    @-webkit-keyframes sk-scaleout {
+        0% {
+            -webkit-transform: scale(0)
+        }
+        100% {
+            -webkit-transform: scale(1);
+            opacity: 0
+        }
+    }
+
+    @keyframes sk-scaleout {
+        0% {
+            -webkit-transform: scale(0);
+            transform: scale(0)
+        }
+        100% {
+            -webkit-transform: scale(1);
+            transform: scale(1);
+            opacity: 0
+        }
+    }
+
+    ul.timeline {
+        list-style-type: none;
+        position: relative;
+    }
+
+    ul.timeline:before {
+        content: ' ';
+        background: #d4d9df;
+        display: inline-block;
+        position: absolute;
+        left: 29px;
+        width: 2px;
+        height: 100%;
+        z-index: 400;
+    }
+
+    ul.timeline > li {
+        margin: 30px 0;
+        padding-left: 20px;
+    }
+
+    ul.timeline > li:before {
+        content: ' ';
+        background: white;
+        display: inline-block;
+        position: absolute;
+        border-radius: 50%;
+        border: 3px solid #22c0e8;
+        left: 20px;
+        width: 20px;
+        height: 20px;
+        z-index: 400;
+    }
+
+
+    </style>
+    <link href="/static/style.css" rel="stylesheet">
+</head>
+<body class="app">
+<div id="loader">
+    <div class="spinner"></div>
+</div>
+<script>window.addEventListener('load', () => {
+    const loader = document.getElementById('loader');
+    setTimeout(() => {
+        loader.classList.add('fadeOut');
+    }, 300);
+});</script>
+<div>
+    {% include "sidebar.html" %}
+
+    <div class="page-container">
+        <div class="header navbar">
+            <div class="header-container">
+                <h4 style="text-align: center;color: red;padding: 10px;">India Case Development Timeline</h4>
+
+            </div>
+        </div>
+        <main class="main-content bgc-grey-100">
+            <div id="mainContent">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="container-fluid">
+                                <div class="masonry-item w-100">
+                                    <div class="row gap-20">
+                                        <div class="col-md-3">
+                                            <div class="layers bd bgc-white p-20">
+                                                <div class="layer w-100 mB-10"><h6 class="lh-1">Total Infections</h6>
+                                                </div>
+                                                <div class="layer w-100">
+                                                    <div class="peers ai-sb fxw-nw">
+                                                        <div class="peer peer-greed"><span
+                                                                style="font-weight: bold">{{ total.total }}</span></div>
+                                                        <div class="peer"><span
+                                                                class="d-ib lh-0 va-m fw-600 bdrs-10em pX-15 pY-15 bgc-red-50 c-red-500">+10%</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <div class="layers bd bgc-white p-20">
+                                                <div class="layer w-100 mB-10"><h6 class="lh-1" style="color: red">
+                                                    Deaths</h6></div>
+                                                <div class="layer w-100">
+                                                    <div class="peers ai-sb fxw-nw">
+                                                        <div class="peer peer-greed"><span
+                                                                style="font-weight: bold">{{ total.deaths or '0' }}</span>
+                                                        </div>
+                                                        <div class="peer"><span
+                                                                class="d-ib lh-0 va-m fw-600 bdrs-10em pX-15 pY-15 bgc-red-50 c-red-500">+7%</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <div class="layers bd bgc-white p-20">
+                                                <div class="layer w-100 mB-10"><h6 class="lh-1" style="color: green">
+                                                    Recovered</h6></div>
+                                                <div class="layer w-100">
+                                                    <div class="peers ai-sb fxw-nw">
+                                                        <div class="peer peer-greed"><span
+                                                                style="font-weight: bold">{{ total.recovered }}</span>
+                                                        </div>
+                                                        <div class="peer"><span
+                                                                class="d-ib lh-0 va-m fw-600 bdrs-10em pX-15 pY-15 bgc-red-50 c-red-500">+12%</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="container-fluid">
+                    <div class="container mt-5 mb-5">
+                        <div class="row">
+                            <div class="col-md-6 offset-md-3">
+                                <h4>Corona Infections</h4>
+                                <ul class="timeline">
+                                    <li>
+                                        <a target="_blank" href="https://www.totoprayogo.com/#">New Web Design</a>
+                                        <a href="#" class="float-right">21 March, 2014</a>
+                                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque scelerisque
+                                            diam non nisi semper, et elementum lorem ornare. Maecenas placerat facilisis
+                                            mollis. Duis sagittis ligula in sodales vehicula....</p>
+                                    </li>
+                                    <li>
+                                        <a href="#">21 000 Job Seekers</a>
+                                        <a href="#" class="float-right">4 March, 2014</a>
+                                        <p>Curabitur purus sem, malesuada eu luctus eget, suscipit sed turpis. Nam
+                                            pellentesque felis vitae justo accumsan, sed semper nisi sollicitudin...</p>
+                                    </li>
+                                    <li>
+                                        <a href="#">Awesome Employers</a>
+                                        <a href="#" class="float-right">1 April, 2014</a>
+                                        <p>Fusce ullamcorper ligula sit amet quam accumsan aliquet. Sed nulla odio,
+                                            tincidunt vitae nunc vitae, mollis pharetra velit. Sed nec tempor
+                                            nibh...</p>
+                                    </li>
+                                    <li>
+                                        <a href="#">Awesome Employers</a>
+                                        <a href="#" class="float-right">1 April, 2014</a>
+                                        <p>Fusce ullamcorper ligula sit amet quam accumsan aliquet. Sed nulla odio,
+                                            tincidunt vitae nunc vitae, mollis pharetra velit. Sed nec tempor
+                                            nibh...</p>
+                                    </li>
+                                    <li>
+                                        <a href="#">Awesome Employers</a>
+                                        <a href="#" class="float-right">1 April, 2014</a>
+                                        <p>Fusce ullamcorper ligula sit amet quam accumsan aliquet. Sed nulla odio,
+                                            tincidunt vitae nunc vitae, mollis pharetra velit. Sed nec tempor
+                                            nibh...</p>
+                                    </li>
+                                    <li>
+                                        <a href="#">Awesome Employers</a>
+                                        <a href="#" class="float-right">1 April, 2014</a>
+                                        <p>Fusce ullamcorper ligula sit amet quam accumsan aliquet. Sed nulla odio,
+                                            tincidunt vitae nunc vitae, mollis pharetra velit. Sed nec tempor
+                                            nibh...</p>
+                                    </li>
+                                    <li>
+                                        <a href="#">Awesome Employers</a>
+                                        <a href="#" class="float-right">1 April, 2014</a>
+                                        <p>Fusce ullamcorper ligula sit amet quam accumsan aliquet. Sed nulla odio,
+                                            tincidunt vitae nunc vitae, mollis pharetra velit. Sed nec tempor
+                                            nibh...</p>
+                                    </li>
+                                    <li>
+                                        <a href="#">Awesome Employers</a>
+                                        <a href="#" class="float-right">1 April, 2014</a>
+                                        <p>Fusce ullamcorper ligula sit amet quam accumsan aliquet. Sed nulla odio,
+                                            tincidunt vitae nunc vitae, mollis pharetra velit. Sed nec tempor
+                                            nibh...</p>
+                                    </li>
+                                    <li>
+                                        <a href="#">Awesome Employers</a>
+                                        <a href="#" class="float-right">1 April, 2014</a>
+                                        <p>Fusce ullamcorper ligula sit amet quam accumsan aliquet. Sed nulla odio,
+                                            tincidunt vitae nunc vitae, mollis pharetra velit. Sed nec tempor
+                                            nibh...</p>
+                                    </li>
+                                    <li>
+                                        <a href="#">Awesome Employers</a>
+                                        <a href="#" class="float-right">1 April, 2014</a>
+                                        <p>Fusce ullamcorper ligula sit amet quam accumsan aliquet. Sed nulla odio,
+                                            tincidunt vitae nunc vitae, mollis pharetra velit. Sed nec tempor
+                                            nibh...</p>
+                                    </li>
+
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </main>
+    </div>
+</div>
+<script type="text/javascript" src="/static/vendor.js"></script>
+<script type="text/javascript" src="/static/bundle.js"></script>
+</body>
+</html>

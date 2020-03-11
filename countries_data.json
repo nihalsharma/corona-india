@@ -1,0 +1,590 @@
+[
+  {
+    "recovered": "53,929 ",
+    "country": " China ",
+    "total": "80,576",
+    "deaths": " 3,042 "
+  },
+  {
+    "recovered": "135 ",
+    "country": " S. Korea ",
+    "total": "6,593",
+    "deaths": " 43 "
+  },
+  {
+    "recovered": "913 ",
+    "country": " Iran ",
+    "total": "4,747",
+    "deaths": " 124 "
+  },
+  {
+    "recovered": "523 ",
+    "country": " Italy ",
+    "total": "4,636",
+    "deaths": " 197 "
+  },
+  {
+    "recovered": "212 ",
+    "country": " Diamond Princess ",
+    "total": "696",
+    "deaths": " 6 "
+  },
+  {
+    "recovered": "17 ",
+    "country": " Germany ",
+    "total": "670",
+    "deaths": " "
+  },
+  {
+    "recovered": "12 ",
+    "country": " France ",
+    "total": "653",
+    "deaths": " 9 "
+  },
+  {
+    "recovered": "46 ",
+    "country": " Japan ",
+    "total": "420",
+    "deaths": " 6 "
+  },
+  {
+    "recovered": "3 ",
+    "country": " Spain ",
+    "total": "400",
+    "deaths": " 8 "
+  },
+  {
+    "recovered": "15 ",
+    "country": " USA ",
+    "total": "272",
+    "deaths": " 15 "
+  },
+  {
+    "recovered": "3 ",
+    "country": " Switzerland ",
+    "total": "214",
+    "deaths": " 1 "
+  },
+  {
+    "recovered": "18 ",
+    "country": " UK ",
+    "total": "164",
+    "deaths": " 2 "
+  },
+  {
+    "recovered": "1 ",
+    "country": " Sweden ",
+    "total": "136",
+    "deaths": " "
+  },
+  {
+    "recovered": "82 ",
+    "country": " Singapore ",
+    "total": "130",
+    "deaths": " "
+  },
+  {
+    "recovered": " ",
+    "country": " Netherlands ",
+    "total": "128",
+    "deaths": " 1 "
+  },
+  {
+    "recovered": "1 ",
+    "country": " Norway ",
+    "total": "127",
+    "deaths": " "
+  },
+  {
+    "recovered": "1 ",
+    "country": " Belgium ",
+    "total": "109",
+    "deaths": " "
+  },
+  {
+    "recovered": "51 ",
+    "country": " Hong Kong ",
+    "total": "108",
+    "deaths": " 2 "
+  },
+  {
+    "recovered": "23 ",
+    "country": " Malaysia ",
+    "total": "83",
+    "deaths": " "
+  },
+  {
+    "recovered": "2 ",
+    "country": " Austria ",
+    "total": "66",
+    "deaths": " "
+  },
+  {
+    "recovered": "22 ",
+    "country": " Australia ",
+    "total": "63",
+    "deaths": " 2 "
+  },
+  {
+    "recovered": "4 ",
+    "country": " Bahrain ",
+    "total": "60",
+    "deaths": " "
+  },
+  {
+    "recovered": "1 ",
+    "country": " Kuwait ",
+    "total": "58",
+    "deaths": " "
+  },
+  {
+    "recovered": "8 ",
+    "country": " Canada ",
+    "total": "51",
+    "deaths": " "
+  },
+  {
+    "recovered": "31 ",
+    "country": " Thailand ",
+    "total": "48",
+    "deaths": " 1 "
+  },
+  {
+    "recovered": "15 ",
+    "country": " Taiwan ",
+    "total": "45",
+    "deaths": " 1 "
+  },
+  {
+    "recovered": " ",
+    "country": " Greece ",
+    "total": "45",
+    "deaths": " "
+  },
+  {
+    "recovered": " ",
+    "country": " Iceland ",
+    "total": "43",
+    "deaths": " "
+  },
+  {
+    "recovered": "1 ",
+    "country": " Iraq ",
+    "total": "40",
+    "deaths": " 3 "
+  },
+  {
+    "recovered": "3 ",
+    "country": " India ",
+    "total": "31",
+    "deaths": " "
+  },
+  {
+    "recovered": "5 ",
+    "country": " UAE ",
+    "total": "29",
+    "deaths": " "
+  },
+  {
+    "recovered": " ",
+    "country": " San Marino ",
+    "total": "23",
+    "deaths": " 1 "
+  },
+  {
+    "recovered": "1 ",
+    "country": " Denmark ",
+    "total": "23",
+    "deaths": " "
+  },
+  {
+    "recovered": " ",
+    "country": " Lebanon ",
+    "total": "22",
+    "deaths": " "
+  },
+  {
+    "recovered": "2 ",
+    "country": " Israel ",
+    "total": "21",
+    "deaths": " "
+  },
+  {
+    "recovered": " ",
+    "country": " Czechia ",
+    "total": "19",
+    "deaths": " "
+  },
+  {
+    "recovered": " ",
+    "country": " Ireland ",
+    "total": "18",
+    "deaths": " "
+  },
+  {
+    "recovered": " ",
+    "country": " Algeria ",
+    "total": "17",
+    "deaths": " "
+  },
+  {
+    "recovered": "16 ",
+    "country": " Vietnam ",
+    "total": "17",
+    "deaths": " "
+  },
+  {
+    "recovered": "2 ",
+    "country": " Oman ",
+    "total": "16",
+    "deaths": " "
+  },
+  {
+    "recovered": " ",
+    "country": " Palestine ",
+    "total": "16",
+    "deaths": " "
+  },
+  {
+    "recovered": "1 ",
+    "country": " Egypt ",
+    "total": "15",
+    "deaths": " "
+  },
+  {
+    "recovered": "1 ",
+    "country": " Finland ",
+    "total": "15",
+    "deaths": " "
+  },
+  {
+    "recovered": " ",
+    "country": " Brazil ",
+    "total": "13",
+    "deaths": " "
+  },
+  {
+    "recovered": " ",
+    "country": " Ecuador ",
+    "total": "13",
+    "deaths": " "
+  },
+  {
+    "recovered": " ",
+    "country": " Portugal ",
+    "total": "13",
+    "deaths": " "
+  },
+  {
+    "recovered": "2 ",
+    "country": " Russia ",
+    "total": "13",
+    "deaths": " "
+  },
+  {
+    "recovered": " ",
+    "country": " Croatia ",
+    "total": "11",
+    "deaths": " "
+  },
+  {
+    "recovered": " ",
+    "country": " Qatar ",
+    "total": "11",
+    "deaths": " "
+  },
+  {
+    "recovered": "9 ",
+    "country": " Macao ",
+    "total": "10",
+    "deaths": " "
+  },
+  {
+    "recovered": " ",
+    "country": " Estonia ",
+    "total": "10",
+    "deaths": " "
+  },
+  {
+    "recovered": " ",
+    "country": " Georgia ",
+    "total": "9",
+    "deaths": " "
+  },
+  {
+    "recovered": "3 ",
+    "country": " Romania ",
+    "total": "9",
+    "deaths": " "
+  },
+  {
+    "recovered": " ",
+    "country": " Argentina ",
+    "total": "8",
+    "deaths": " "
+  },
+  {
+    "recovered": " ",
+    "country": " Slovenia ",
+    "total": "8",
+    "deaths": " "
+  },
+  {
+    "recovered": " ",
+    "country": " Azerbaijan ",
+    "total": "6",
+    "deaths": " "
+  },
+  {
+    "recovered": " ",
+    "country": " Belarus ",
+    "total": "6",
+    "deaths": " "
+  },
+  {
+    "recovered": "1 ",
+    "country": " Mexico ",
+    "total": "6",
+    "deaths": " "
+  },
+  {
+    "recovered": "1 ",
+    "country": " Pakistan ",
+    "total": "6",
+    "deaths": " "
+  },
+  {
+    "recovered": "2 ",
+    "country": " Philippines ",
+    "total": "5",
+    "deaths": " 1 "
+  },
+  {
+    "recovered": "1 ",
+    "country": " Saudi Arabia ",
+    "total": "5",
+    "deaths": " "
+  },
+  {
+    "recovered": " ",
+    "country": " Chile ",
+    "total": "5",
+    "deaths": " "
+  },
+  {
+    "recovered": " ",
+    "country": " Poland ",
+    "total": "5",
+    "deaths": " "
+  },
+  {
+    "recovered": " ",
+    "country": " Indonesia ",
+    "total": "4",
+    "deaths": " "
+  },
+  {
+    "recovered": " ",
+    "country": " New Zealand ",
+    "total": "4",
+    "deaths": " "
+  },
+  {
+    "recovered": " ",
+    "country": " Senegal ",
+    "total": "4",
+    "deaths": " "
+  },
+  {
+    "recovered": " ",
+    "country": " Hungary ",
+    "total": "4",
+    "deaths": " "
+  },
+  {
+    "recovered": " ",
+    "country": " North Macedonia ",
+    "total": "3",
+    "deaths": " "
+  },
+  {
+    "recovered": " ",
+    "country": " Bosnia and Herzegovina ",
+    "total": "3",
+    "deaths": " "
+  },
+  {
+    "recovered": " ",
+    "country": " Dominican Republic ",
+    "total": "2",
+    "deaths": " "
+  },
+  {
+    "recovered": " ",
+    "country": " Luxembourg ",
+    "total": "2",
+    "deaths": " "
+  },
+  {
+    "recovered": " ",
+    "country": " Morocco ",
+    "total": "2",
+    "deaths": " "
+  },
+  {
+    "recovered": " ",
+    "country": " Afghanistan ",
+    "total": "1",
+    "deaths": " "
+  },
+  {
+    "recovered": " ",
+    "country": " Andorra ",
+    "total": "1",
+    "deaths": " "
+  },
+  {
+    "recovered": " ",
+    "country": " Armenia ",
+    "total": "1",
+    "deaths": " "
+  },
+  {
+    "recovered": "1 ",
+    "country": " Cambodia ",
+    "total": "1",
+    "deaths": " "
+  },
+  {
+    "recovered": " ",
+    "country": " Jordan ",
+    "total": "1",
+    "deaths": " "
+  },
+  {
+    "recovered": "1 ",
+    "country": " Latvia ",
+    "total": "1",
+    "deaths": " "
+  },
+  {
+    "recovered": " ",
+    "country": " Lithuania ",
+    "total": "1",
+    "deaths": " "
+  },
+  {
+    "recovered": " ",
+    "country": " Monaco ",
+    "total": "1",
+    "deaths": " "
+  },
+  {
+    "recovered": "1 ",
+    "country": " Nepal ",
+    "total": "1",
+    "deaths": " "
+  },
+  {
+    "recovered": " ",
+    "country": " Nigeria ",
+    "total": "1",
+    "deaths": " "
+  },
+  {
+    "recovered": "1 ",
+    "country": " Sri Lanka ",
+    "total": "1",
+    "deaths": " "
+  },
+  {
+    "recovered": " ",
+    "country": " Tunisia ",
+    "total": "1",
+    "deaths": " "
+  },
+  {
+    "recovered": " ",
+    "country": " Ukraine ",
+    "total": "1",
+    "deaths": " "
+  },
+  {
+    "recovered": " ",
+    "country": " Bhutan ",
+    "total": "1",
+    "deaths": " "
+  },
+  {
+    "recovered": " ",
+    "country": " Cameroon ",
+    "total": "1",
+    "deaths": " "
+  },
+  {
+    "recovered": " ",
+    "country": " Colombia ",
+    "total": "1",
+    "deaths": " "
+  },
+  {
+    "recovered": " ",
+    "country": " Costa Rica ",
+    "total": "1",
+    "deaths": " "
+  },
+  {
+    "recovered": " ",
+    "country": " Gibraltar ",
+    "total": "1",
+    "deaths": " "
+  },
+  {
+    "recovered": " ",
+    "country": " Vatican City ",
+    "total": "1",
+    "deaths": " "
+  },
+  {
+    "recovered": " ",
+    "country": " Liechtenstein ",
+    "total": "1",
+    "deaths": " "
+  },
+  {
+    "recovered": " ",
+    "country": " Peru ",
+    "total": "1",
+    "deaths": " "
+  },
+  {
+    "recovered": " ",
+    "country": " Serbia ",
+    "total": "1",
+    "deaths": " "
+  },
+  {
+    "recovered": " ",
+    "country": " Slovakia ",
+    "total": "1",
+    "deaths": " "
+  },
+  {
+    "recovered": " ",
+    "country": " South Africa ",
+    "total": "1",
+    "deaths": " "
+  },
+  {
+    "recovered": " ",
+    "country": " Togo ",
+    "total": "1",
+    "deaths": " "
+  },
+  {
+    "recovered": "56,123",
+    "country": "Total:",
+    "total": "101,888",
+    "deaths": "3,465"
+  }
+]

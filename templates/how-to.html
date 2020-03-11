@@ -1,0 +1,301 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
+    <link rel="shortcut icon" href="/static/assets/static/images/favicon.ico"/>
+    <title>World: Live News</title>
+    <style>#loader {
+        transition: all .3s ease-in-out;
+        opacity: 1;
+        visibility: visible;
+        position: fixed;
+        height: 100vh;
+        width: 100%;
+        background: #fff;
+        z-index: 90000
+    }
+
+    #loader.fadeOut {
+        opacity: 0;
+        visibility: hidden
+    }
+
+    .spinner {
+        width: 40px;
+        height: 40px;
+        position: absolute;
+        top: calc(50% - 20px);
+        left: calc(50% - 20px);
+        background-color: #333;
+        border-radius: 100%;
+        -webkit-animation: sk-scaleout 1s infinite ease-in-out;
+        animation: sk-scaleout 1s infinite ease-in-out
+    }
+
+    @-webkit-keyframes sk-scaleout {
+        0% {
+            -webkit-transform: scale(0)
+        }
+        100% {
+            -webkit-transform: scale(1);
+            opacity: 0
+        }
+    }
+
+    @keyframes sk-scaleout {
+        0% {
+            -webkit-transform: scale(0);
+            transform: scale(0)
+        }
+        100% {
+            -webkit-transform: scale(1);
+            transform: scale(1);
+            opacity: 0
+        }
+    }
+
+    body {
+        font-family: "Open Sans";
+        font-size: 13px;
+        font-size: 0.8125rem;
+        font-weight: 300;
+        color: #4a6e78;
+    }
+
+    h1 {
+        text-align: center;
+        font-size: 35px;
+        font-size: 2.1875rem;
+        line-height: 1.8;
+        padding: 50px 0;
+    }
+
+    .accordion {
+        max-width: 660px;
+        margin: 0 auto 100px;
+        border-top: 1px solid #d9e5e8;
+    }
+
+    .accordion li {
+        border-bottom: 1px solid #d9e5e8;
+        position: relative;
+    }
+
+    .accordion li p {
+        display: none;
+        padding: 10px 25px 30px;
+        color: #6b97a4;
+    }
+
+    .accordion a {
+        width: 100%;
+        display: block;
+        cursor: pointer;
+        font-weight: 600;
+        line-height: 3;
+        font-size: 14px;
+        font-size: 0.875rem;
+        text-indent: 15px;
+        user-select: none;
+    }
+
+    .accordion a:after {
+        width: 8px;
+        height: 8px;
+        border-right: 1px solid #4a6e78;
+        border-bottom: 1px solid #4a6e78;
+        position: absolute;
+        right: 10px;
+        content: " ";
+        top: 17px;
+        transform: rotate(-45deg);
+        -webkit-transition: all 0.2s ease-in-out;
+        -moz-transition: all 0.2s ease-in-out;
+        transition: all 0.2s ease-in-out;
+    }
+
+    .accordion p {
+        font-size: 13px;
+        font-size: 0.8125rem;
+        line-height: 2;
+        padding: 10px;
+    }
+
+    a.active:after {
+        transform: rotate(45deg);
+        -webkit-transition: all 0.2s ease-in-out;
+        -moz-transition: all 0.2s ease-in-out;
+        transition: all 0.2s ease-in-out;
+    }
+
+
+    </style>
+    <link href="/static/style.css" rel="stylesheet">
+    <link href="/static/article-grid.css" rel="stylesheet">
+</head>
+<body class="app">
+<div id="loader">
+    <div class="spinner"></div>
+</div>
+<script>window.addEventListener('load', () => {
+    const loader = document.getElementById('loader');
+    setTimeout(() => {
+        loader.classList.add('fadeOut');
+    }, 300);
+});</script>
+<div>
+    {% include "sidebar.html" %}
+    <div class="page-container">
+        <div class="header navbar">
+            <div class="header-container">
+                <h4 style="text-align: center;color: red;padding: 10px;">Basic protective measures against the new
+                    coronavirus</h4>
+
+            </div>
+        </div>
+        <main class="main-content bgc-grey-100">
+            <div id="mainContent">
+                <div class="container-fluid">
+                    <div style="text-align: center;font-weight: bold;font-size: 1.2em;margin:2em">Q&A on coronaviruses
+                        (COVID-19)
+                    </div>
+                    <ul class="accordion">
+                        <li>
+                            <a>Basic protective measures against the new coronavirus</a>
+                            <p>
+                                <span>Wash your hands frequently</span><br>
+                                <span>Maintain social distancing</span><br>
+                                <span>Avoid touching eyes, nose and mouth</span><br>
+                                <span>Practice respiratory hygiene</span><br>
+                                <span>If you have fever, cough and difficulty breathing, seek medical care early</span><br>
+                                <span>Stay informed and follow advice given by your healthcare provider</span><br>
+                                <span>Practice respiratory hygiene</span><br>
+
+                            </p>
+                        </li>
+                        <li>
+                            <a>What are the symptoms of COVID-19?</a>
+                            <p>The most common symptoms of COVID-19 are fever, tiredness, and dry cough. Some patients
+                                may have aches and pains, nasal congestion, runny nose, sore throat or diarrhea. These
+                                symptoms are usually mild and begin gradually. Some people become infected but don’t
+                                develop any symptoms and don't feel unwell. Most people (about 80%) recover from the
+                                disease without needing special treatment. Around 1 out of every 6 people who gets
+                                COVID-19 becomes seriously ill and develops difficulty breathing. Older people, and
+                                those with underlying medical problems like high blood pressure, heart problems or
+                                diabetes, are more likely to develop serious illness. People with fever, cough and
+                                difficulty breathing should seek medical attention.</p>
+                        </li>
+                        <li>
+                            <a>How does COVID-19 spread?</a>
+                            <p>People can catch COVID-19 from others who have the virus. The disease can spread from
+                                person to person through small droplets from the nose or mouth which are spread when a
+                                person with COVID-19 coughs or exhales. These droplets land on objects and surfaces
+                                around the person. Other people then catch COVID-19 by touching these objects or
+                                surfaces, then touching their eyes, nose or mouth. People can also catch COVID-19 if
+                                they breathe in droplets from a person with COVID-19 who coughs out or exhales droplets.
+                                This is why it is important to stay more than 1 meter (3 feet) away from a person who is
+                                sick. WHO is assessing ongoing research on the ways COVID-19 is spread and will continue
+                                to
+                                share updated findings.</p>
+                        </li>
+                        <li>
+                            <a>Can CoVID-19 be caught from a person who has no symptoms?</a>
+                            <p>The main way the disease spreads is through respiratory droplets expelled by someone who
+                                is coughing. The risk of catching COVID-19 from someone with no symptoms at all is very
+                                low. However, many people with COVID-19 experience only mild symptoms. This is
+                                particularly true at the early stages of the disease. It is therefore possible to catch
+                                COVID-19 from someone who has, for example, just a mild cough and does not feel ill. WHO
+                                is assessing ongoing research on the period of transmission of COVID-19 and will
+                                continue to share updated findings. </p>
+                        </li>
+                        <li>
+                            <a>Can I catch COVID-19 from the feces of someone with the disease?</a>
+                            <p>The risk of catching COVID-19 from the feces of an infected person appears to be low.
+                                While initial investigations suggest the virus may be present in feces in some cases,
+                                spread through this route is not a main feature of the outbreak. WHO is assessing
+                                ongoing research on the ways COVID-19 is spread and will continue to share new findings.
+                                Because this is a risk, however, it is another reason to clean hands regularly, after
+                                using the bathroom and before eating. </p>
+                        </li>
+
+                        <li>
+                            <a>How likely am I to catch COVID-19?</a>
+                            <p>The risk depends on where you are - and more specifically, whether there is a COVID-19
+                                outbreak unfolding there.</p>
+
+                            <p>For most people in most locations the risk of catching COVID-19 is still low. However,
+                                there are now places around the world (cities or areas) where the disease is spreading.
+                                For people living in, or visiting, these areas the risk of catching COVID-19 is higher.
+                                Governments and health authorities are taking vigorous action every time a new case of
+                                COVID-19 is identified. Be sure to comply with any local restrictions on travel,
+                                movement or large gatherings. Cooperating with disease control efforts will reduce your
+                                risk of catching or spreading COVID-19.</p>
+
+                            <p>COVID-19 outbreaks can be contained and transmission stopped, as has been shown in China
+                                and some other countries. Unfortunately, new outbreaks can emerge rapidly. It’s
+                                important to be aware of the situation where you are or intend to go. WHO publishes
+                                daily updates on the COVID-19 situation worldwide.</p>
+                        </li>
+
+                        <li>
+                            <a>Should I worry about COVID-19?</a>
+                            <p>Illness due to COVID-19 infection is generally mild, especially for children and young
+                                adults. However, it can cause serious illness: about 1 in every 5 people who catch it
+                                need hospital care. It is therefore quite normal for people to worry about how the
+                                COVID-19 outbreak will affect them and their loved ones.
+
+                                We can channel our concerns into actions to protect ourselves, our loved ones and our
+                                communities. First and foremost among these actions is regular and thorough hand-washing
+                                and good respiratory hygiene. Secondly, keep informed and follow the advice of the local
+                                health authorities including any restrictions put in place on travel, movement and
+                                gatherings. Learn more about how to protect yourself at below link.<a
+                                        href="https://www.who.int/emergencies/diseases/novel-coronavirus-2019/advice-for-public "
+                                        target="_blank">LINK</a></p>
+                        </li>
+
+                        <li>
+                            <a>How long does the virus survive on surfaces?</a>
+                            <p>It is not certain how long the virus that causes COVID-19 survives on surfaces, but it
+                                seems to behave like other coronaviruses. Studies suggest that coronaviruses (including
+                                preliminary information on the COVID-19 virus) may persist on surfaces for a few hours
+                                or up to several days. This may vary under different conditions (e.g. type of surface,
+                                temperature or humidity of the environment).
+
+                                If you think a surface may be infected, clean it with simple disinfectant to kill the
+                                virus and protect yourself and others. Clean your hands with an alcohol-based hand rub
+                                or wash them with soap and water. Avoid touching your eyes, mouth, or nose.</p>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </main>
+    </div>
+</div>
+<script type="text/javascript" src="/static/vendor.js"></script>
+<script type="text/javascript" src="/static/bundle.js"></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+<script type="text/javascript">
+    (function ($) {
+        $('.accordion > li:eq(0) a').addClass('active').next().slideDown();
+
+        $('.accordion a').click(function (j) {
+            var dropDown = $(this).closest('li').find('p');
+
+            $(this).closest('.accordion').find('p').not(dropDown).slideUp();
+
+            if ($(this).hasClass('active')) {
+                $(this).removeClass('active');
+            } else {
+                $(this).closest('.accordion').find('a.active').removeClass('active');
+                $(this).addClass('active');
+            }
+
+            dropDown.stop(false, true).slideToggle();
+
+            j.preventDefault();
+        });
+    })(jQuery);
+</script>
+</body>
+</html>
