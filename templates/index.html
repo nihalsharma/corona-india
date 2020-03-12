@@ -97,7 +97,7 @@
                     <li><a id="sidebar-toggle" class="sidebar-toggle" href="javascript:void(0);"><i class="ti-menu"></i></a>
                     </li>
                 </ul>
-
+                <div style="text-align: center;padding: 1em">S0me random text</div>
             </div>
         </div>
         <main class="main-content bgc-grey-100">
@@ -159,9 +159,10 @@
                             <div class="peers fxw-nw@lg+ ai-s">
                                 <div class="peer peer-greed w-70p@lg+ w-100@lg- p-20">
                                     <div class="layers">
-                                        <div class="layer w-100 mB-10"><h6 class="lh-1">Site Visits</h6></div>
+                                        <div class="layer w-100 mB-10"><h6 class="lh-1">World Map</h6></div>
                                         <div class="layer w-100">
-                                            <iframe src="https://www.google.com/maps/d/embed?mid=1a04iBi41DznkMaQRnICO40ktROfnMfMx" width="100%" height="850px"></iframe>
+                                            <iframe src="https://www.google.com/maps/d/embed?mid=1a04iBi41DznkMaQRnICO40ktROfnMfMx"
+                                                    width="100%" height="850px"></iframe>
                                         </div>
                                     </div>
                                 </div>
@@ -204,5 +205,22 @@
 </div>
 <script type="text/javascript" src="/static/vendor.js"></script>
 <script type="text/javascript" src="/static/bundle.js"></script>
+<script type="text/javascript">
+    var text = ["Hola", "Hallo", "Merhaba"];
+    var counter = 0;
+    var elem = $("#greeting");
+    setInterval(change, 3000);
+
+    function change() {
+        elem.fadeOut(function () {
+            elem.html(text[counter]);
+            counter++;
+            if (counter >= text.length) {
+                counter = 0;
+            }
+            elem.fadeIn();
+        });
+    }
+</script>
 </body>
 </html>

@@ -1,7 +1,7 @@
 import json
 
 import flask
-from flask import Flask
+from flask import Flask, jsonify, request
 
 from db.setup import DBConnection
 from settings import settings
@@ -84,5 +84,15 @@ def india_links():
     return flask.render_template('india-links.html')
 
 
+@app.route('/subscribe', methods=['POST'])
+def subscribe():
+    # save the email address in the db
+    db_conn = DBConnection()
+    db_conn.db_conn.save_subscriber(request.form.get('email'))
+    return jsonify({'success': True})
+
+
+application = set_application()
+
 if __name__ == '__main__':
-    app.run()
+    application.run()

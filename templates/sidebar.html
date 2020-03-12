@@ -41,13 +41,53 @@
                     class="c-blue-500 ti-share"></i> </span><span class="title">GOOD NEWS</span></a></li>
             <li class="nav-item"><a class="sidebar-link" href="/how-to"><span class="icon-holder"><i
                     class="c-deep-orange-500 ti-calendar"></i> </span><span class="title">HOW TO</span></a></li>
-
-            <div class="ps__rail-x" style="left: 0px; bottom: 0px;">
-                <div class="ps__thumb-x" tabindex="0" style="left: 0px; width: 0px;"></div>
-            </div>
-            <div class="ps__rail-y" style="top: 0px; right: 0px;">
-                <div class="ps__thumb-y" tabindex="0" style="top: 0px; height: 0px;"></div>
-            </div>
+            <li style="border-top: 1px solid #ccc; margin: 4em;"></li>
+            <li class="nav-item" style="margin: 1em;text-align: center"><span
+                    class="title">Subscribe to newsletter</span></li>
+            <li><input type="email" class="form-control" id="email" placeholder="Email"></li>
+            <li style="margin: 1em;text-align: center">
+                <button type="submit" class="btn btn-primary subscribe-newsletter">Subscribe</button>
+            </li>
+            <li class="nav-item success-li" style="margin: 1em;text-align: center;display: None;color: #00AF80"><span
+                    class="title">Success </span><img src="/static/assets/static/images/tick-00AF80.png"
+                                                      style="height: 16px;width: 16px"/></li>
+            <li class="nav-item error-li" style="margin: 1em;text-align: center;display: None;color: red"><span
+                    class="title">Error!</span></li>
+            <li class="nav-item error-email-li" style="margin: 1em;text-align: center;display: None;color: red"><span
+                    class="title">Invalid Email!</span></li>
         </ul>
     </div>
+    <div style="clear: both"></div>
 </div>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+<script type="text/javascript">
+    $(".subscribe-newsletter").click(function (e) {
+        var email = $("#email").val();
+        if (email == '') {
+            $(".error-email-li").fadeIn("slow").fadeOut("slow");
+            return false;
+        } else {
+            var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+            var valid = re.test(String(email).toLowerCase());
+            if (!valid) {
+                $(".error-email-li").fadeIn("slow").fadeOut("slow");
+                return false;
+            }
+        }
+        $.ajax({
+            type: 'POST',
+            dataType: 'json',
+            url: '/subscribe',
+            data: {
+                email: email,
+            },
+            success: function (response) {
+                $(".success-li").fadeIn("slow").fadeOut("slow");
+            },
+            error: function (request) {
+                console.log("-------------------------")
+                $(".error-li").fadeIn("slow").fadeOut("slow");
+            }
+        });
+    })
+</script>
