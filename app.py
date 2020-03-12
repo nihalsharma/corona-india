@@ -74,6 +74,11 @@ def world_live():
     return flask.render_template('world-live.html')
 
 
+@app.route('/good-news')
+def good_news():
+    return flask.render_template('good-news.html')
+
+
 @app.route('/how-to')
 def how_to():
     return flask.render_template('how-to.html')
