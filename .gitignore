@@ -126,3 +126,5 @@ dmypy.json
 .pyre/
 
 /.idea
+*.iml
+/countries_data.json
