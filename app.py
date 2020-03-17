@@ -58,7 +58,7 @@ def india_stats():
     with open('countries_data.json', 'r') as f:
         data = json.load(f)
     for d in data:
-        if d['country'] == ' India':
+        if d['country'] == 'India':
             total = d
             break
     return flask.render_template('india-stats.html', total=total)
