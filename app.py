@@ -1,5 +1,5 @@
 import json
-
+import requests
 import flask
 from flask import Flask, jsonify, request
 
@@ -19,7 +19,6 @@ def set_application():
 def hello_world():
     with open('countries_data.json', 'r') as f:
         data = json.load(f)
-
     total_count, total_d = None, None
     for d in data:
         if d['country'] == 'Total:':
@@ -55,13 +54,19 @@ def world_stat():
 @app.route('/india-stats')
 def india_stats():
     total = None
+    response = requests.get('https://edata.ndtv.com/cricket/coronavirus/data.json')
+    d = json.loads(response.text)
+    dataset = []
+    for e in d['countries']:
+        if e['country'] == 'India':
+            dataset = e['states']
     with open('countries_data.json', 'r') as f:
         data = json.load(f)
     for d in data:
         if d['country'] == 'India':
             total = d
             break
-    return flask.render_template('india-stats.html', total=total)
+    return flask.render_template('india-stats.html', total=total,data=dataset)
 
 
 @app.route('/india-live')
