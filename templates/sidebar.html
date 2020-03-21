@@ -43,6 +43,16 @@
             <li style="border-top: 1px solid #ccc; margin: 4em;"></li>
             <li class="nav-item" style="margin: 1em;text-align: center"><span
                     class="title">Subscribe to newsletter</span></li>
+            <li class="nav-item" style="margin: 1em;text-align: center">
+                <input type="radio" name="subscribe_country" id="subscribe_country" value="india">&nbsp; India&nbsp;&nbsp;
+                <input type="radio" name="subscribe_country" id="subscribe_country" value="world">&nbsp; World&nbsp;&nbsp;
+                <input type="radio" name="subscribe_country" id="subscribe_country" value="both">&nbsp; Both
+            </li>
+            <li class="nav-item" style="margin: 1em;text-align: center">
+                <input type="radio" id="subscribe_frequency" value="6">&nbsp; 6 hrs&nbsp;&nbsp;
+                <input id="subscribe_frequency" type="radio" value="12">&nbsp; 12 hrs&nbsp;&nbsp;
+                <input id="subscribe_frequency" type="radio" value="24">&nbsp; 24 hrs
+            </li>
             <li><input type="email" class="form-control" id="email" placeholder="Email"></li>
             <li style="margin: 1em;text-align: center">
                 <button type="submit" class="btn btn-primary subscribe-newsletter">Subscribe</button>
@@ -62,6 +72,8 @@
 <script type="text/javascript">
     $(".subscribe-newsletter").click(function (e) {
         var email = $("#email").val();
+        var subscribe_country = $('input[id="subscribe_country"]:checked').val();
+        var subscribe_frequency = $('input[id="subscribe_frequency"]:checked').val();
         if (email == '') {
             $(".error-email-li").fadeIn("slow").fadeOut("slow");
             return false;
@@ -79,6 +91,8 @@
             url: '/subscribe',
             data: {
                 email: email,
+                subscribe_country: subscribe_country,
+                subscribe_frequency: subscribe_frequency,
             },
             success: function (response) {
                 $(".success-li").fadeIn("slow").fadeOut("slow");

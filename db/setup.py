@@ -16,10 +16,12 @@ class _DBConnSingleton(object):
         def get_client(self):
             return self.client, self.db
 
-        def save_subscriber(self, email):
+        def save_subscriber(self, email, country, frequency):
+            print(locals())
             collection = self.db['subscribers']
             collection.find_one_and_update({'email': email}, {
-                '$set': {'subscribed_on': str(datetime.datetime.now().date()), 'subscribed': True}}, upsert=True)
+                '$set': {'subscribed_on': str(datetime.datetime.now().date()), 'subscribed': True, 'country': country,
+                         'frequency': frequency}}, upsert=True)
 
         def unsubscribe(self, email):
             collection = self.db['subscribers']

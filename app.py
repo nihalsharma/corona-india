@@ -66,7 +66,7 @@ def india_stats():
         if d['country'] == 'India':
             total = d
             break
-    return flask.render_template('india-stats.html', total=total,data=dataset)
+    return flask.render_template('india-stats.html', total=total, data=dataset)
 
 
 @app.route('/india-live')
@@ -79,8 +79,8 @@ def india_live():
 @app.route('/world-live')
 def world_live():
     db_conn = DBConnection()
-    world_news=db_conn.db_conn.fetch_world_news()
-    return flask.render_template('world-live.html',world_news=world_news)
+    world_news = db_conn.db_conn.fetch_world_news()
+    return flask.render_template('world-live.html', world_news=world_news)
 
 
 @app.route('/good-news')
@@ -102,7 +102,10 @@ def india_links():
 def subscribe():
     # save the email address in the db
     db_conn = DBConnection()
-    db_conn.db_conn.save_subscriber(request.form.get('email'))
+    email = request.form.get('email')
+    country = request.form.get('subscribe_country', 'world')
+    frequency = request.form.get('subscribe_frequency', '24')
+    db_conn.db_conn.save_subscriber(email, country, frequency)
     return jsonify({'success': True})
 
 
