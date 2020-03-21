@@ -55,6 +55,68 @@
         }
     }
 
+    .notice {
+        position: relative;
+        margin: 1em;
+        background: #F9F9F9;
+        padding: 1em 1em 1em 2em;
+        border-left: 4px solid #DDD;
+        border-bottom: 1px solid lightgrey !important;
+        width: 100%;
+    }
+
+    .notice:before {
+        position: absolute;
+        top: 50%;
+        margin-top: -17px;
+        left: -19px;
+        background-color: #DDD;
+        color: #FFF;
+        width: 35px;
+        height: 35px;
+        border-radius: 100%;
+        text-align: center;
+        line-height: 35px;
+        font-weight: bold;
+        text-shadow: 1px 1px rgba(0, 0, 0, 0.5);
+    }
+
+    .TW {
+        border-color: #0074D9;
+    }
+
+    .TW:before {
+        content: "TW";
+        background-color: #0074D9;
+    }
+
+    .HT {
+        border-color: #2ECC40;
+    }
+
+    .HT:before {
+        content: "HT";
+        background-color: #2ECC40;
+    }
+
+    .LM {
+        border-color: #FFDC00;
+    }
+
+    .LM:before {
+        content: "LM";
+        background-color: #FFDC00;
+    }
+
+    .TOI {
+        border-color: #e0579a;
+    }
+
+    .TOI:before {
+        content: "TOI";
+        background-color: #e0579a;
+    }
+
 
     </style>
     <link href="/static/style.css" rel="stylesheet">
@@ -84,176 +146,15 @@
             <div id="mainContent">
                 <div class="container-fluid">
                     <div class="row">
-                        <div class="site__wrapper">
-                            <div class="grid">
-                                <div class="card">
-                                    <div class="card__image">
-                                        <img src="/static/assets/static/images/bubbles.jpg"
-                                             alt="">
-
-                                        <div class="card__overlay card__overlay--indigo">
-                                            <div class="card__overlay-content">
-                                                <a href="https://www.ndtv.com/india-news/another-person-tests-positive-for-coronavirus-in-delhi-total-cases-in-india-rise-to-31-2190870"
-                                                   target="_blank" class="card__title">Delhi Man With Thailand, Malaysia
-                                                    Travel History Is 31st Coronavirus Case</a>
-
-                                                <ul class="card__meta card__meta--last">
-                                                    <li><a href="#0"><i class="fa fa-tag"></i> NDTV</a></li>
-                                                    <li><a href="#0"><i class="fa fa-clock-o"></i> 14 hours ago</a>
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="grid">
-                                <div class="card">
-                                    <div class="card__image">
-                                        <img src="/static/assets/static/images/indigo.png" alt="">
-
-                                        <div class="card__overlay card__overlay--blue">
-                                            <div class="card__overlay-content">
-
-                                                <a href="https://indianexpress.com/article/india/coronavirus-scare-indian-government-flight-for-iran-6301703/"
-                                                   target="_blank" class="card__title">Coronavirus scare: Govt confirms
-                                                    community spread, readies flight for Iran, count is 30</a>
-
-                                                <ul class="card__meta card__meta--last">
-                                                    <li>
-                                                        <a href="#0"><i class="fa fa-tag"></i> IND EXP </a></li>
-                                                    <li><a href="#0"><i class="fa fa-clock-o"></i> 06/03/2020</a>
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="grid">
-                                <div class="card">
-                                    <div class="card__image">
-                                        <img src="/static/assets/static/images/leatherette_black.jpg" alt="">
-
-                                        <div class="card__overlay card__overlay--blue">
-                                            <div class="card__overlay-content">
-
-                                                <a href="https://www.hindustantimes.com/india-news/india-confirms-30th-coronavirus-patient-30-000-people-under-watch/story-MJQMuBLADCIcWmI0dTastK.html"
-                                                   class="card__title">India confirms 30th coronavirus
-                                                    patient, 30,000 people under watch </a>
-
-                                                <ul class="card__meta">
-                                                    <li>
-                                                        <a href="#0"><i class="fa fa-tag"></i> HT</a></li>
-                                                    <li><a href="#0"><i class="fa fa-clock-o"></i> 06/03/2020 </a></li>
-                                                </ul>
-
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="grid">
-                                <div class="card">
-                                    <div class="card__image">
-                                        <img src="/static/assets/static/images/teal_gfreen221-2.jpg" alt="">
-
-                                        <div class="card__overlay card__overlay--blue">
-                                            <div class="card__overlay-content">
-                                                <ul class="card__meta">
-                                                    <li><a href="#0"><i class="fa fa-tag"></i> Tutorials</a></li>
-                                                    <li><a href="#0"><i class="fa fa-clock-o"></i> 2 days ago</a></li>
-                                                </ul>
-
-                                                <a href="https://timesofindia.indiatimes.com/business/india-business/hand-sanitizer-makers-see-10-folds-jump-in-sales-ramp-up-production/articleshow/74497994.cms?from=mdr"
-                                                   target="_blank" class="card__title">Hand sanitizer makers see
-                                                    10-folds jump in sales; ramp up production
-                                                </a>
-
-                                                <ul class="card__meta card__meta--last">
-                                                    <li><a href="#0"><i class="fa fa-tag"></i> TOI </a></li>
-                                                    <li><a href="#0"><i class="fa fa-facebook-square"></i>
-                                                        06/03/2020</a>
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="grid">
-                                <div class="card">
-                                    <div class="card__image">
-                                        <img src="/static/assets/static/images/blue.jpg" alt="">
-
-                                        <div class="card__overlay card__overlay--blue">
-                                            <div class="card__overlay-content">
-
-
-                                                <a href="https://bangaloremirror.indiatimes.com/bangalore/others/coronavirus-outbreak-no-positive-cases-in-karnataka-says-medical-education-minister-dr-sudhakar-k/articleshow/74496819.cms"
-                                                   target="_blank" class="card__title">Coronavirus outbreak: 'No
-                                                    positive cases in Karnataka,' says Medical Education minister Dr
-                                                    Sudhakar K</a>
-
-                                                <ul class="card__meta">
-                                                    <li><a href="#0"><i class="fa fa-tag"></i> IND TIMES</a></li>
-                                                    <li><a href="#0"><i class="fa fa-clock-o"></i> 06/03/2020</a></li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="grid">
-                                <div class="card">
-                                    <div class="card__image">
-                                        <img src="/static/assets/static/images/Color-orange.jpeg" alt="">
-
-                                        <div class="card__overlay card__overlay--blue">
-                                            <div class="card__overlay-content">
-                                                <a target="_blank"
-                                                   href="https://timesofindia.indiatimes.com/home/science/how-worried-should-you-be-about-the-coronavirus/articleshow/74508338.cms"
-                                                   class="card__title">How worried should you be about the
-                                                    coronavirus? </a>
-
-                                                <ul class="card__meta">
-                                                    <li><a href="#0"><i class="fa fa-tag"></i> TOI </a></li>
-                                                    <li><a href="#0"><i class="fa fa-clock-o"></i> 06/03/2020</a></li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="grid">
-                                <div class="card">
-                                    <div class="card__image">
-                                        <img src="/static/assets/static/images/multi-colored.jpg" alt="">
-
-                                        <div class="card__overlay card__overlay--blue">
-                                            <div class="card__overlay-content">
-
-                                                <a target="_blank"
-                                                   href="https://economictimes.indiatimes.com/news/politics-and-nation/indias-limited-integration-with-global-value-chain-insulates-it-from-coronavirus-impact-rbi-guv/articleshow/74515453.cms"
-                                                   class="card__title">India's limited integration with global value
-                                                    chain insulates it from coronavirus impact: RBI Guv</a>
-
-                                                <ul class="card__meta">
-                                                    <li><a href="#0"><i class="fa fa-tag"></i> ET </a></li>
-                                                    <li><a href="#0"><i class="fa fa-clock-o"></i> 06/03/2020</a></li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                        </div><!-- @end site__wrapper -->
-
+                        {% for news in india_news %}
+                            <div class="notice {{ news.source_short }}"><h5>{{ news.headline }}</h5>
+                                <span style="font-size: small">{{ news.date }}</span><a
+                                        style="font-size: small;margin-left: 2em;margin-right: 2em"
+                                        href="{{ news.link }}">{{ news.link[:20] }}...</a>
+                                {% for tag in news.sub_tags %}
+                                    <button type="button" class="btn cur-p btn-outline-primary">{{tag}}
+                                    </button>{% endfor %}</div>
+                        {% endfor %}
                     </div>
                 </div>
             </div>

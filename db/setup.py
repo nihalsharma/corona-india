@@ -25,6 +25,12 @@ class _DBConnSingleton(object):
             collection = self.db['subscribers']
             collection.find_one_and_update({'email': email}, {'$set': {'subscribed': False}}, upsert=False)
 
+        def fetch_india_news(self):
+            collection = self.db['news']
+            cursor = collection.find({'country': 'India'}).sort([("id", -1)]).limit(50)
+            india_news = list(cursor)
+            return india_news
+
     def __init__(self):
         # just for the sake of information
         self.db_conn = _DBConnSingleton.__DBConnection()

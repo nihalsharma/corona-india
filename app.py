@@ -71,7 +71,9 @@ def india_stats():
 
 @app.route('/india-live')
 def india_live():
-    return flask.render_template('india-live.html')
+    db_conn = DBConnection()
+    india_news = db_conn.db_conn.fetch_india_news()
+    return flask.render_template('india-live.html', india_news=india_news)
 
 
 @app.route('/world-live')
