@@ -18,8 +18,8 @@ def init_celery(celery_appl, app):
 
 
 def make_celery(app_name=__name__):
-    backend = settings.BROKER_URL
-    broker = settings.CELERY_RESULT_BACKEND
+    backend = settings.CELERY_RESULT_BACKEND
+    broker = settings.BROKER_URL
     celery_appl = Celery(app_name, backend=backend, broker=broker)
     return celery_appl
 
