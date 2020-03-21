@@ -26,8 +26,6 @@ def make_celery(app_name=__name__):
 
 celery_app = make_celery()
 
-app = None
-
 
 def create_app(app_name=__name__, **kwargs):
     app = Flask(__name__, template_folder='templates', static_folder='static', static_url_path='/static', )
@@ -40,6 +38,7 @@ def create_app(app_name=__name__, **kwargs):
     return app
 
 
+app = create_app(celery_app=celery_app)
+
 if __name__ == '__main__':
-    app = create_app(celery_app=celery_app)
     app.run()
