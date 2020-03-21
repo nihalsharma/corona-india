@@ -106,26 +106,11 @@
                         width="100%" height="800px"></iframe>
             </div>
         </main>
+        <footer class="bdT ta-c p-30 lh-0 fsz-sm c-grey-600"><div>Made with <span style="color:red">❤</span> in India</div>
+        </footer>
     </div>
 </div>
 <script type="text/javascript" src="/static/vendor.js"></script>
 <script type="text/javascript" src="/static/bundle.js"></script>
-<script type="text/javascript">
-    var text = ["Hola", "Hallo", "Merhaba"];
-    var counter = 0;
-    var elem = $("#greeting");
-    setInterval(change, 3000);
-
-    function change() {
-        elem.fadeOut(function () {
-            elem.html(text[counter]);
-            counter++;
-            if (counter >= text.length) {
-                counter = 0;
-            }
-            elem.fadeIn();
-        });
-    }
-</script>
 </body>
 </html>

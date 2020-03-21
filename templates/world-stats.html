@@ -67,7 +67,7 @@
     }, 300);
 });</script>
 <div>
-                {% include "sidebar.html" %}
+    {% include "sidebar.html" %}
 
     <div class="page-container">
         <div class="header navbar">
@@ -112,10 +112,12 @@
                             </div>
                             <div class="col-md-3">
                                 <div class="layers bd bgc-white p-20">
-                                    <div class="layer w-100 mB-10"><h6 class="lh-1" style="color: green">Recovered</h6></div>
+                                    <div class="layer w-100 mB-10"><h6 class="lh-1" style="color: green">Recovered</h6>
+                                    </div>
                                     <div class="layer w-100">
                                         <div class="peers ai-sb fxw-nw">
-                                            <div class="peer peer-greed"><span style="font-weight: bold">{{ total.recovered }}</span></div>
+                                            <div class="peer peer-greed"><span
+                                                    style="font-weight: bold">{{ total.recovered }}</span></div>
                                             <div class="peer"><span
                                                     class="d-ib lh-0 va-m fw-600 bdrs-10em pX-15 pY-15 bgc-red-50 c-red-500">+12%</span>
                                             </div>
@@ -168,6 +170,8 @@
                 </div>
             </div>
         </main>
+        <footer class="bdT ta-c p-30 lh-0 fsz-sm c-grey-600"><div>Made with <span style="color:red">❤</span> in India</div>
+        </footer>
     </div>
 </div>
 <script type="text/javascript" src="/static/vendor.js"></script>
