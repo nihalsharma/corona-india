@@ -1,0 +1,500 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
+    <link rel="shortcut icon" href="/static/assets/static/images/favicon.ico"/>
+    <title>Growth of Infections/Deaths/Recoveries</title>
+    <style>#loader {
+        transition: all .3s ease-in-out;
+        opacity: 1;
+        visibility: visible;
+        position: fixed;
+        height: 100vh;
+        width: 100%;
+        background: #fff;
+        z-index: 90000
+    }
+
+    #loader.fadeOut {
+        opacity: 0;
+        visibility: hidden
+    }
+
+    .spinner {
+        width: 40px;
+        height: 40px;
+        position: absolute;
+        top: calc(50% - 20px);
+        left: calc(50% - 20px);
+        background-color: #333;
+        border-radius: 100%;
+        -webkit-animation: sk-scaleout 1s infinite ease-in-out;
+        animation: sk-scaleout 1s infinite ease-in-out
+    }
+
+    @-webkit-keyframes sk-scaleout {
+        0% {
+            -webkit-transform: scale(0)
+        }
+        100% {
+            -webkit-transform: scale(1);
+            opacity: 0
+        }
+    }
+
+    @keyframes sk-scaleout {
+        0% {
+            -webkit-transform: scale(0);
+            transform: scale(0)
+        }
+        100% {
+            -webkit-transform: scale(1);
+            transform: scale(1);
+            opacity: 0
+        }
+    }
+
+    ul.timeline {
+        list-style-type: none;
+        position: relative;
+    }
+
+    ul.timeline:before {
+        content: ' ';
+        background: #d4d9df;
+        display: inline-block;
+        position: absolute;
+        left: 29px;
+        width: 2px;
+        height: 100%;
+        z-index: 400;
+    }
+
+    ul.timeline > li {
+        margin: 30px 0;
+        padding-left: 20px;
+    }
+
+    ul.timeline > li:before {
+        content: ' ';
+        background: white;
+        display: inline-block;
+        position: absolute;
+        border-radius: 50%;
+        border: 3px solid #22c0e8;
+        left: 20px;
+        width: 20px;
+        height: 20px;
+        z-index: 400;
+    }
+
+
+    </style>
+    <link href="/static/style.css" rel="stylesheet">
+</head>
+<body class="app">
+<div id="loader">
+    <div class="spinner"></div>
+</div>
+<script>window.addEventListener('load', () => {
+    const loader = document.getElementById('loader');
+    setTimeout(() => {
+        loader.classList.add('fadeOut');
+    }, 300);
+});</script>
+<div>
+    {% include "sidebar.html" %}
+
+    <div class="page-container">
+        <div class="header navbar">
+            <div class="header-container">
+                <h4 style="text-align: center;color: red;padding: 10px;">India: Important Links</h4>
+
+            </div>
+        </div>
+        <main class="main-content bgc-grey-100">
+            <div id="mainContent">
+                <div class="container-fluid">
+                    <div class="mt-5 mb-5">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <h4>Referred Links</h4>
+                                <table class="table table-striped" style="border: 1px solid #dee2e6;">
+                                    <thead>
+                                    <tr>
+                                        <th>Sr.No</th>
+                                        <th>Source Name</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    <tr>
+                                        <td>1</td>
+                                        <td><a href="https://www.mohfw.gov.in/" target="_blank">Ministry of Health and
+                                            Family Welfare Government of
+                                            India</a></td>
+                                    </tr>
+                                    <tr>
+                                        <td>2</td>
+                                        <td>
+                                            <a href="https://www.indiatoday.in/india/story/coronavirus-cases-in-india-covid19-states-cities-affected-1653852-2020-03-09"
+                                               target="_blank">Daily trends by India Today</a></td>
+                                    </tr>
+                                    <tr>
+                                        <td>3</td>
+                                        <td><a href="https://infographics.channelnewsasia.com/covid-19/map.html"
+                                               target="_blank">Realtime feed from
+                                            Channelnewsasia</a></td>
+                                    </tr>
+                                    <tr>
+                                        <td>4</td>
+                                        <td>
+                                            <a href="https://www.kff.org/global-health-policy/fact-sheet/coronavirus-tracker/"
+                                               target="_blank">COVID-19
+                                                Coronavirus Tracker from kff.org</a></td>
+                                    </tr>
+                                    <tr>
+                                        <td>5</td>
+                                        <td>
+                                            <a href="https://www.arcgis.com/apps/opsdashboard/index.html#/bda7594740fd40299423467b48e9ecf6"
+                                               target="_blank">COVID-19 Global Cases by Johns Hopkins CSSE</a></td>
+                                    </tr>
+                                    <tr>
+                                        <td>6</td>
+                                        <td><a href="https://www.worldometers.info/coronavirus/" target="_blank">Worldometers
+                                            Coronavirus Cases</a></td>
+                                    </tr>
+                                    <tr>
+                                        <td>7</td>
+                                        <td><a href="https://economictimes.indiatimes.com/topic/confirmed-cases"
+                                               target="_blank">Economictimes ET</a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>8</td>
+                                        <td><a href="https://timesofindia.indiatimes.com/"
+                                               target="_blank">Timesofindia</a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>9</td>
+                                        <td><a href="https://twitter.com/" target="_blank">Twitter hashtags and
+                                            confirmed
+                                            Twitter updates</a></td>
+                                    </tr>
+                                    <tr>
+                                        <td>10</td>
+                                        <td><a href="https://ncov2019.live/" target="_blank">ncov 2019 Live</a></td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                                <br>
+                                <br>
+                                <br>
+                                <h4>Helpline Numbers</h4>
+
+                                <table class="table table-striped" style="border: 1px solid #dee2e6;">
+                                    <thead>
+                                    <tr>
+                                        <th style="width: 10%;">Sr.No</th>
+                                        <th style="width: 40%;">State</th>
+                                        <th style="width: 50%;">Helpline Number</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    <tr>
+                                        <td>1</td>
+                                        <td>Andhra Pradesh</td>
+                                        <td><a target="_blank" href="tel:0866-2410978">0866-2410978</a></td>
+                                    </tr>
+                                    <tr>
+                                        <td>2</td>
+                                        <td>Arunachal Pradesh</td>
+                                        <td><a target="_blank" href="tel:9536055743">9536055743</a></td>
+                                    </tr>
+                                    <tr>
+                                        <td>3</td>
+                                        <td>Assam</td>
+                                        <td><a target="_blank" href="tel:6913347770">6913347770</a></td>
+                                    </tr>
+                                    <tr>
+                                        <td>4</td>
+                                        <td>Bihar</td>
+                                        <td><a target="_blank" href="tel:104">104</a></td>
+                                    </tr>
+                                    <tr>
+                                        <td>5</td>
+                                        <td>Chhattisgarh</td>
+                                        <td><a target="_blank" href="tel:077122-35091">077122-35091</a></td>
+                                    </tr>
+                                    <tr>
+                                        <td>6</td>
+                                        <td>Goa</td>
+                                        <td><a target="_blank" href="tel:104">104</a></td>
+                                    </tr>
+                                    <tr>
+                                        <td>7</td>
+                                        <td>Gujarat</td>
+                                        <td><a target="_blank" href="tel:104">104</a></td>
+                                    </tr>
+                                    <tr>
+                                        <td>8</td>
+                                        <td>Haryana</td>
+                                        <td><a target="_blank" href="tel:8558893911">8558893911</a></td>
+                                    </tr>
+                                    <tr>
+                                        <td>9</td>
+                                        <td>Himachal Pradesh</td>
+                                        <td><a target="_blank" href="tel:104">104</a></td>
+                                    </tr>
+                                    <tr>
+                                        <td>10</td>
+                                        <td>Jharkhand</td>
+                                        <td><a target="_blank" href="tel:104">104</a></td>
+                                    </tr>
+                                    <tr>
+                                        <td>11</td>
+                                        <td>Karnataka</td>
+                                        <td><a target="_blank" href="tel:104">104</a></td>
+                                    </tr>
+                                    <tr>
+                                        <td>12</td>
+                                        <td>Kerala</td>
+                                        <td><a target="_blank" href="tel:0471-2552056">0471-2552056</a></td>
+                                    </tr>
+                                    <tr>
+                                        <td>13</td>
+                                        <td>Madhya Pradesh</td>
+                                        <td><a target="_blank" href="tel:0755-2527177">0755-2527177</a></td>
+                                    </tr>
+                                    <tr>
+                                        <td>14</td>
+                                        <td>Maharashtra</td>
+                                        <td><a target="_blank" href="tel:020-26127394">020-26127394</a></td>
+                                    </tr>
+                                    <tr>
+                                        <td>15</td>
+                                        <td>Manipur</td>
+                                        <td><a target="_blank" href="tel:3852411668">3852411668</a></td>
+                                    </tr>
+                                    <tr>
+                                        <td>16</td>
+                                        <td>Meghalaya</td>
+                                        <td><a target="_blank" href="tel:9366090748">9366090748</a></td>
+                                    </tr>
+                                    <tr>
+                                        <td>17</td>
+                                        <td>Mizoram</td>
+                                        <td><a target="_blank" href="tel:102">102</a></td>
+                                    </tr>
+                                    <tr>
+                                        <td>18</td>
+                                        <td>Nagaland</td>
+                                        <td><a target="_blank" href="tel:7005539653">7005539653</a></td>
+                                    </tr>
+                                    <tr>
+                                        <td>19</td>
+                                        <td>Odisha</td>
+                                        <td><a target="_blank" href="tel:9439994859">9439994859</a></td>
+                                    </tr>
+                                    <tr>
+                                        <td>20</td>
+                                        <td>Punjab</td>
+                                        <td><a target="_blank" href="tel:104">104</a></td>
+                                    </tr>
+                                    <tr>
+                                        <td>21</td>
+                                        <td>Rajasthan</td>
+                                        <td><a target="_blank" href="tel:0141-2225624">0141-2225624</a></td>
+                                    </tr>
+                                    <tr>
+                                        <td>22</td>
+                                        <td>Sikkim</td>
+                                        <td><a target="_blank" href="tel:104">104</a></td>
+                                    </tr>
+                                    <tr>
+                                        <td>23</td>
+                                        <td>Tamil Nadu</td>
+                                        <td><a target="_blank" href="tel:044-29510500">044-29510500</a></td>
+                                    </tr>
+                                    <tr>
+                                        <td>24</td>
+                                        <td>Telangana</td>
+                                        <td><a target="_blank" href="tel:104">104</a></td>
+                                    </tr>
+                                    <tr>
+                                        <td>25</td>
+                                        <td>Tripura</td>
+                                        <td><a target="_blank" href="tel:0381-2315879">0381-2315879</a></td>
+                                    </tr>
+                                    <tr>
+                                        <td>26</td>
+                                        <td>Uttarakhand</td>
+                                        <td><a target="_blank" href="tel:104">104</a></td>
+                                    </tr>
+                                    <tr>
+                                        <td>27</td>
+                                        <td>Uttar Pradesh</td>
+                                        <td><a target="_blank" href="tel:18001805145">18001805145</a></td>
+                                    </tr>
+                                    <tr>
+                                        <td>28</td>
+                                        <td>West Bengal</td>
+                                        <td><a target="_blank" href="tel:3323412600">3323412600</a></td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div class="col-md-6">
+                                <h4>Test Sites</h4>
+                                <div class="Normal" style="border: 1px solid #dee2e6;padding: 1em;">As the spread of coronavirus
+                                    (covid-19) intensifies across the globe and in India, the government has designated
+                                    test sites across the country to expedite diagnosis and aid treatment.
+                                    <br>
+                                    <br>India has had 75 confirmed cases so far, and one death due to the virus.
+                                    <br>
+                                    <br>Here's a complete list of the test centres across the country:
+                                    <br>
+                                    <br>
+                                    <strong>Andhra Pradesh</strong>
+                                    <br>1. Sri Venkateswara Institute of Medical Sciences, Tirupati
+                                    <br>2. Andhra Medical College, Visakhapatnam, Andhra Pradesh
+                                    <br>
+                                    <br>
+                                    <strong>Andaman &amp; Nicobar Islands<br></strong>1. GMC, Anantapur, AP
+                                    <br>2. Regional Medical Research Centre, Port Blair, Andaman and Nicobar
+                                    <div id="div-clmb-ctn-208630-1" data-slot="208630" data-position="1"
+                                         data-section="0" class="colombia colombiaVideo colombiaAd"
+                                         style="margin-top:10px;clear:both;"></div>
+                                    <br>
+                                    <br>
+                                    <strong>Assam<br></strong>1. Gauhati Medical College, Guwahati
+                                    <br>2. Regional Medical Research Center, Dibrugarh
+                                    <br>
+                                    <br>
+                                    <strong>Bihar <br></strong>1. Rajendra Memorial Research Institute of Medical
+                                    Sciences, Patna
+                                    <br>
+                                    <br>
+                                    <strong>Chandigarh <br></strong>1. Post Graduate Institute of Medical Education
+                                    &amp; Research, Chandigarh
+                                    <br>
+                                    <br>
+                                    <strong>Chhattisgarh<br></strong>1. All India
+                                    Institute Medical Sciences, Raipur
+                                    <br>
+                                    <br>
+                                    <strong>Delhi-NCR<br></strong>1. All India Institute Medical Sciences, Delhi
+                                    <br>2. National Centre for Disease Control, Delhi
+                                    <br>
+                                    <br>
+                                    <strong>Gujarat <br></strong>1. BJ Medical College, Ahmedabad
+                                    <br>2. M.P.Shah Government Medical College, Jamnagar
+                                    <br>
+                                    <br>
+                                    <strong>Haryana<br></strong>1. Pt. B.D. Sharma Post Graduate Inst. of Med. Sciences,
+                                    Rohtak, Haryana
+                                    <br>2. BPS Govt Medical College, Sonipat
+                                    <br>
+                                    <br>
+                                    <strong>Himachal Pradesh<br></strong>1. Indira Gandhi Medical College, Shimla,
+                                    Himachal Pradesh
+                                    <br>2. Dr.Rajendra Prasad Govt. Med. College, Kangra, Tanda, HP
+                                    <br>
+                                    <br>
+                                    <strong>Jammu and Kashmir<br></strong>1. Sher-e- Kashmir Institute of Medical
+                                    Sciences, Srinagar
+                                    <br>2. Government Medical College, Jammu
+                                    <br>
+                                    <br>
+                                    <strong>Jharkhand <br></strong>1. MGM Medical College, Jamshedpur
+                                    <br>
+                                    <br>
+                                    <strong>Karnataka <br></strong>1. Bangalore Medical College &amp; Research
+                                    Institute, Bangalore
+                                    <br>2. National
+                                    Institute of Virology Field Unit Bangalore
+                                    <br>3. Mysore Medical College &amp; Research Institute, Mysore
+                                    <br>4. Hassan Inst. of Med. Sciences, Hassan, Karnataka
+                                    <br>5. Shimoga Inst. of Med. Sciences, Shivamogga, Karnataka
+                                    <br>
+                                    <br>
+                                    <strong>Kerala</strong>
+                                    <br>1. National Institute of Virology Field Unit, Kerala
+                                    <br>2. Govt. Medical College, Thriuvananthapuram, Kerala
+                                    <br>3. Govt. Medical College, Kozhikhode, Kerala
+                                    <br>
+                                    <br>
+                                    <strong>Madhya Pradesh<br></strong>1. All India Institute Medical Sciences, Bhopal
+                                    <br>2. National Institute of Research in Tribal Health (NIRTH), Jabalpur
+                                    <br>
+                                    <br>
+                                    <strong>Meghalaya<br></strong>1. NEIGRI of Health and Medical Sciences, Shillong,
+                                    Meghalaya
+                                    <br>
+                                    <br>
+                                    <strong>Maharashtra<br></strong>1. Indira Gandhi Government Medical College, Nagpur
+                                    <br>2. Kasturba Hospital for Infectious Diseases, Mumbai
+                                    <br>
+                                    <br>
+                                    <strong>Manipur <br></strong>1. J N Inst. of Med. Sciences Hospital, Imphal-East,
+                                    Manipur
+                                    <br>
+                                    <br>
+                                    <strong>Odisha <br></strong>1. Regional Medical Research Center, Bhubaneswar
+                                    <br>
+                                    <br>
+                                    <strong>Puducherry <br></strong>1. Jawaharlal Institute of Postgraduate Medical
+                                    Education &amp; Research, Puducherry
+                                    <br>
+                                    <br>
+                                    <strong>Punjab <br></strong>1. Government Medical College, Patiala, Punjab
+                                    <br>2. Government
+                                    Medical College, Amritsar
+                                    <br>
+                                    <br>
+                                    <strong>Rajasthan <br></strong>1. Sawai Man Singh, Jaipur
+                                    <br>2. Dr. S.N Medical College, Jodhpur
+                                    <br>3. Jhalawar Medical
+                                    College, Jhalawar, Rajasthan
+                                    <br>4. SP Med. College, Bikaner, Rajasthan
+                                    <br>
+                                    <br>
+                                    <strong>Tamil Nadu <br></strong>1. King's Institute of Preventive Medicine &amp;
+                                    Research, Chennai
+                                    <br>2. Government Medical College, Theni
+                                    <br>
+                                    <br>
+                                    <strong>Tripura <br></strong>1. Government Medical College, Agartala
+                                    <br>
+                                    <br>
+                                    <strong>Telangana <br></strong>1. Gandhi Medical College, Secunderabad
+                                    <br>
+                                    <br>
+                                    <strong>Uttar Pradesh <br></strong>1. King's George Medical University, Lucknow
+                                    <br>2. Institute of Medical Sciences, Banaras Hindu
+                                    University, Varanasi
+                                    <br>3. Jawaharlal Nehru Medical College, Aligarh
+                                    <br>
+                                    <br>
+                                    <strong>Uttarakhand <br></strong>1. Government Medical College, Haldwani
+                                    <br>
+                                    <br>
+                                    <strong>West Bengal </strong>
+                                    <br>1. National Institute of Cholera and Enteric Diseases, Kolkata
+                                    <br>2. IPGMER, Kolkata
+                                    <br>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </main>
+    </div>
+</div>
+<script type="text/javascript" src="/static/vendor.js"></script>
+<script type="text/javascript" src="/static/bundle.js"></script>
+</body>
+</html>
