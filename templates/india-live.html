@@ -117,6 +117,15 @@
         background-color: #e0579a;
     }
 
+    .BM {
+        border-color: #0044cc;
+    }
+
+    .BM:before {
+        content: "BM";
+        background-color: #0044cc;
+    }
+
 
     </style>
     <link href="/static/style.css" rel="stylesheet">
@@ -152,7 +161,7 @@
                                         style="font-size: small;margin-left: 2em;margin-right: 2em"
                                         href="{{ news.link }}">{{ news.link[:20] }}...</a>
                                 {% for tag in news.sub_tags %}
-                                    <button type="button" class="btn cur-p btn-outline-primary">{{tag}}
+                                    <button type="button" class="btn cur-p btn-outline-primary">{{ tag }}
                                     </button>{% endfor %}</div>
                         {% endfor %}
                     </div>

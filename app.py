@@ -78,7 +78,9 @@ def india_live():
 
 @app.route('/world-live')
 def world_live():
-    return flask.render_template('world-live.html')
+    db_conn = DBConnection()
+    world_news=db_conn.db_conn.fetch_world_news()
+    return flask.render_template('world-live.html',world_news=world_news)
 
 
 @app.route('/good-news')

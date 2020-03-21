@@ -31,6 +31,12 @@ class _DBConnSingleton(object):
             india_news = list(cursor)
             return india_news
 
+        def fetch_world_news(self):
+            collection = self.db['news']
+            cursor = collection.find({'country': 'World'}).sort([("id", -1)]).limit(50)
+            world_news = list(cursor)
+            return world_news
+
     def __init__(self):
         # just for the sake of information
         self.db_conn = _DBConnSingleton.__DBConnection()
