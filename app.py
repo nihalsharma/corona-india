@@ -1,115 +1,45 @@
-import json
-import requests
-import flask
-from flask import Flask, jsonify, request
+from flask import Flask
 
 from db.setup import DBConnection
 from settings import settings
+from celery import Celery
 
-app = Flask(__name__, template_folder='templates', static_folder='static', static_url_path='/static', )
+
+def init_celery(celery_appl, app):
+    celery_appl.config_from_object(app.config)
+    TaskBase = celery_appl.Task
+
+    class ContextTask(TaskBase):
+        def __call__(self, *args, **kwargs):
+            with app.app_context():
+                return TaskBase.__call__(self, *args, **kwargs)
+
+    celery_appl.Task = ContextTask
 
 
-def set_application():
-    app = Flask(__name__)
-    app.config.from_object(settings)
+def make_celery(app_name=__name__):
+    backend = settings.BROKER_URL
+    broker = settings.CELERY_RESULT_BACKEND
+    celery_appl = Celery(app_name, backend=backend, broker=broker)
+    return celery_appl
+
+
+celery_app = make_celery()
+
+
+def create_app(app_name=__name__, **kwargs):
+    application = Flask(__name__, template_folder='templates', static_folder='static', static_url_path='/static', )
+    app = Flask(app_name)
+    if kwargs.get("celery"):
+        init_celery(kwargs.get("celery"), app)
+    from api import api
+    application.register_blueprint(api)
+    application.config.from_object(settings)
     db_conn = DBConnection()
+    return application
 
 
-@app.route('/')
-def hello_world():
-    with open('countries_data.json', 'r') as f:
-        data = json.load(f)
-    total_count, total_d = None, None
-    for d in data:
-        if d['country'] == 'Total:':
-            total_d = d
-            total_count = int(d['total'].replace(',', ''))
-            break
-
-    print(total_count)
-    count_data = []
-    for d1 in data[:5]:
-        total = int(d1['total'].replace(',', ''))
-        percentage = int((total * 100 / total_count))
-        if percentage == 0:
-            percentage = round((total * 100 / total_count), 1)
-        count_data.append({'total': d1['total'], 'percentage': percentage, 'country': d1['country']})
-
-    return flask.render_template('index.html', count_data=count_data, total=total_d)
-
-
-@app.route('/world-stats')
-def world_stat():
-    with open('countries_data.json', 'r') as f:
-        data = json.load(f)
-
-    total = None
-    for d in data:
-        if d['country'] == 'Total:':
-            total = d
-            break
-    return flask.render_template('world-stats.html', data=data, total=total, open_world="open")
-
-
-@app.route('/india-stats')
-def india_stats():
-    total = None
-    response = requests.get('https://edata.ndtv.com/cricket/coronavirus/data.json')
-    d = json.loads(response.text)
-    dataset = []
-    for e in d['countries']:
-        if e['country'] == 'India':
-            dataset = e['states']
-    with open('countries_data.json', 'r') as f:
-        data = json.load(f)
-    for d in data:
-        if d['country'] == 'India':
-            total = d
-            break
-    return flask.render_template('india-stats.html', total=total, data=dataset, open_india="open")
-
-
-@app.route('/india-live')
-def india_live():
-    db_conn = DBConnection()
-    india_news = db_conn.db_conn.fetch_india_news()
-    return flask.render_template('india-live.html', india_news=india_news, open_india="open")
-
-
-@app.route('/world-live')
-def world_live():
-    db_conn = DBConnection()
-    world_news = db_conn.db_conn.fetch_world_news()
-    return flask.render_template('world-live.html', world_news=world_news)
-
-
-@app.route('/good-news')
-def good_news():
-    return flask.render_template('good-news.html')
-
-
-@app.route('/how-to')
-def how_to():
-    return flask.render_template('how-to.html')
-
-
-@app.route('/india-links')
-def india_links():
-    return flask.render_template('india-links.html')
-
-
-@app.route('/subscribe', methods=['POST'])
-def subscribe():
-    # save the email address in the db
-    db_conn = DBConnection()
-    email = request.form.get('email')
-    country = request.form.get('subscribe_country', 'world')
-    frequency = request.form.get('subscribe_frequency', '24')
-    db_conn.db_conn.save_subscriber(email, country, frequency)
-    return jsonify({'success': True})
-
-
-application = set_application()
 
 if __name__ == '__main__':
-    application.run()
+    app = create_app(celery_app=celery_app)
+    app.run()
