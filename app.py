@@ -26,18 +26,17 @@ def make_celery(app_name=__name__):
 
 celery_app = make_celery()
 
+app = Flask(__name__, template_folder='templates', static_folder='static', static_url_path='/static', )
+
 
 def create_app(app_name=__name__, **kwargs):
-    application = Flask(__name__, template_folder='templates', static_folder='static', static_url_path='/static', )
-    app = Flask(app_name)
     if kwargs.get("celery"):
         init_celery(kwargs.get("celery"), app)
     from api import api
-    application.register_blueprint(api)
-    application.config.from_object(settings)
+    app.register_blueprint(api)
+    app.config.from_object(settings)
     db_conn = DBConnection()
-    return application
-
+    return app
 
 
 if __name__ == '__main__':
