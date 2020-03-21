@@ -11,6 +11,6 @@ How to run the app
 
 `export LANG=en_US.utf-8`
 
-`pip install -r requirement.txt` 
+`pip install -r requirements.txt` 
 
 `python -m flask run`
