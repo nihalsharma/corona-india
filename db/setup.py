@@ -10,7 +10,7 @@ class _DBConnSingleton(object):
         connection = None
 
         def __init__(self):
-            self.client = MongoClient(MONGODB_HOST, 27017)
+            self.client = MongoClient(MONGODB_HOST, 27017, connect=False)
             self.db = self.client['corona_india']
 
         def get_client(self):
