@@ -128,3 +128,4 @@ dmypy.json
 /.idea
 *.iml
 /countries_data.json
+dump.rdb

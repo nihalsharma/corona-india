@@ -29,13 +29,13 @@ class _DBConnSingleton(object):
 
         def fetch_india_news(self):
             collection = self.db['news']
-            cursor = collection.find({'country': 'India'}).sort([("id", -1)]).limit(50)
+            cursor = collection.find({'country': 'India'}).sort([("_id", -1)]).limit(50)
             india_news = list(cursor)
             return india_news
 
         def fetch_world_news(self):
             collection = self.db['news']
-            cursor = collection.find({'country': 'World'}).sort([("id", -1)]).limit(50)
+            cursor = collection.find({'country': 'World'}).sort([("_id", -1)]).limit(50)
             world_news = list(cursor)
             return world_news
 
