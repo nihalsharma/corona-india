@@ -35,7 +35,7 @@ class _DBConnSingleton(object):
 
         def fetch_news_with_subtag(self, name, tag):
             collection = self.db['news']
-            cursor = collection.find({'country': name, 'sub_tags': [tag]}).sort([("_id", -1)]).limit(50)
+            cursor = collection.find({'country': name, 'sub_tags': tag}).sort([("_id", -1)]).limit(50)
             india_news = list(cursor)
             return india_news
 
