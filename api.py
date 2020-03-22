@@ -95,7 +95,7 @@ def india_live_tagged(tag):
 def good_news():
     db_conn = DBConnection()
     world_news = db_conn.db_conn.fetch_news('Good News')
-    return flask.render_template('world-live.html', world_news=world_news, open_world="open")
+    return flask.render_template('world-live.html', world_news=world_news)
 
 
 @api.route('/how-to')
