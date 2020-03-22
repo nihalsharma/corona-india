@@ -167,8 +167,8 @@
                                         style="font-size: small;margin-left: 2em;margin-right: 2em"
                                         href="{{ news.link }}">{{ news.link[:20] }}...</a>
                                 {% for tag in news.sub_tags %}
-                                    <button type="button" class="btn cur-p btn-outline-primary">{{ tag }}
-                                    </button>{% endfor %}</div>
+                                    <a type="button" class="btn cur-p btn-outline-primary" href="/india-{{ tag }}">{{ tag }}
+                                    </a>{% endfor %}</div>
                         {% endfor %}
                     </div>
                 </div>

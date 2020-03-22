@@ -65,23 +65,37 @@ def india_stats():
 
 @api.route('/india-live')
 def india_live():
-    from tasks.tasks import dummy_task
-    dummy_task.apply_async()
     db_conn = DBConnection()
-    india_news = db_conn.db_conn.fetch_india_news()
+    india_news = db_conn.db_conn.fetch_news('India')
     return flask.render_template('india-live.html', india_news=india_news, open_india="open")
 
 
 @api.route('/world-live')
 def world_live():
     db_conn = DBConnection()
-    world_news = db_conn.db_conn.fetch_world_news()
+    world_news = db_conn.db_conn.fetch_news('World')
     return flask.render_template('world-live.html', world_news=world_news, open_world="open")
+
+
+@api.route('/world-<tag>')
+def world_live_tagged(tag):
+    db_conn = DBConnection()
+    world_news = db_conn.db_conn.fetch_news_with_subtag('World', tag)
+    return flask.render_template('world-live.html', world_news=world_news, open_world="open")
+
+
+@api.route('/india-<tag>')
+def india_live_tagged(tag):
+    db_conn = DBConnection()
+    india_news = db_conn.db_conn.fetch_news_with_subtag('India', tag)
+    return flask.render_template('india-live.html', india_news=india_news, open_india="open")
 
 
 @api.route('/good-news')
 def good_news():
-    return flask.render_template('good-news.html')
+    db_conn = DBConnection()
+    world_news = db_conn.db_conn.fetch_news('Good News')
+    return flask.render_template('world-live.html', world_news=world_news, open_world="open")
 
 
 @api.route('/how-to')
