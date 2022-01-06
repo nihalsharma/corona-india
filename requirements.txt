@@ -3,4 +3,4 @@ requests==2.23.0
 pymongo==3.10.1
 simplejson==3.17.0
 redis==3.4.1
-celery==4.4.2
+celery==5.2.2
